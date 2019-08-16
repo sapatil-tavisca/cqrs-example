@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: customer-event
+          producer:
+            partition-count: 3
+        input:
+          destination: customer-event
+          group: event-consumer
+      kafka:
+        binder:
+          autoAddPartitions: true
+          minPartitionCount: 3
